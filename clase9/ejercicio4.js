@@ -13,6 +13,6 @@ while ( num != null) {
             suma += parseInt (num);
             num = prompt ("Ingrese otro nro")
         }
-    }
+}
     
 document.write("la suma es: " + suma )

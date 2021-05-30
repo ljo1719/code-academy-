@@ -18,29 +18,14 @@ function ciudades() {
             var x = prompt("Ingresa un nombre de ciudad:");
         }
         nombres.push("Paris");
-        nombres[2] = "Barcelona" +"<br>";
+        nombres[1] = "Barcelona" +"<br>";
         document.write(nombres);
         document.write("<br><br>"+"La cantidad de ciudades son: " + nombres.length+"<br>");
         document.write("La primer posicion de  la lista es: " + nombres[0]);
         document.write("La tercera posicion de la lista es: " + nombres[2]);
         alert ("Elemento que ocupa la segunda posición es : "+ nombres[1]);
-        document.write("La ultima posicion de la lista es: " + nombres[nombres.length-1]);
-       
-        
-
+        document.write("La ultima posicion de la lista es: " + nombres[nombres.length-1]);       
     }  
-    document.write("Listado de ciudades"+"<br><br>");
+document.write("Listado de ciudades"+"<br><br>");
 ciudades();
 
-/*
-let nom = [];
-let numero = prompt('ingresa un número');
-
-while (numero != null ) {
-    nom.push(numero) 
-    numero = prompt('ingresa un número')
-       
-}
-
-document.write(nom)
-*/
