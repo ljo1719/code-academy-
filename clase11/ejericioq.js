@@ -49,8 +49,9 @@ function SumaDeArrays ( numerosA1, numerosA2){
 
     if (numerosA1.length === numerosA2.length){
 
-        for (var i = 0; i < numerosA1.length; i++) {         
-            sum1.push((+ numerosA2[i]) + (+ numerosA1[i]));
+        for (var i = 0; i < numerosA1.length; i++) {    
+            
+           sum1.push((+ numerosA2[i]) + (+ numerosA1[i]));
         }
         console.log(sum1); 
     } else { alert("Los arrays deben ser de igual magnitud")}
