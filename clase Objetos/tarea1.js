@@ -29,23 +29,34 @@ calculadora.operaciones = [
 ]
 al final del ejercicio, operaciones debe tener un historial de todas las operaciones que se realizaron */
 
-const calculadora = { 
-    sumar: function (a,b){ const suma = (a+b); 
-        this.operaciones.push(this.guardar("suma",a,b,suma));
-        return suma },
-    restar: function (a,b){ const resta = (a-b);
-        this.operaciones.push(this.guardar("resta",a,b,resta))
-        return (resta)},
-    multiplicar: function (a,b){ producto = (a*b); 
-        this.operaciones.push(this.guardar("producto",a,b,producto));
-        return (producto)}, 
-    dividir: function (a,b){ divide=(a/b); 
-        this.operaciones.push(this.guardar("division",a,b,divide))
-        return(divide)},
+const calculadora = {
+    sumar: function (a, b) {
+        const suma = (a + b);
+        this.guardar("suma", a, b, suma);
+        return suma
+    },
+    restar: function (a, b) {
+        const resta = (a - b);
+        this.guardar("resta", a, b, resta)
+        return (resta)
+    },
+    multiplicar: function (a, b) {
+        producto = (a * b);
+        this.guardar("producto", a, b, producto);
+        return (producto)
+    },
+    dividir: function (a, b) {
+        divide = (a / b);
+        this.guardar("division", a, b, divide)
+        return (divide)
+    },
     operaciones: [],
-    guardar: function ( tipo,parametro1, parametro2, total ) { 
-        return (   {operacion: tipo,
-                    operandos: [parametro1,parametro2],
-                    resultado:total}) }
+    guardar: function (tipo, parametro1, parametro2, total) {
+        this.operaciones.push ({
+            operacion: tipo,
+            operandos: [parametro1, parametro2],
+            resultado: total
+        })
+    }
 }
 
