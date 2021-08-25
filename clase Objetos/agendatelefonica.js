@@ -14,3 +14,19 @@ eliminarContacto(Contacto c): elimina el contacto de la agenda, indica si se ha 
 agendaLlena(): indica si la agenda está llena.
 huecosLibres(): indica cuántos contactos más podemos ingresar.
 Crea un menú con opciones por consola para probar todas estas funcionalidades. */
+
+class agenda {
+    constructor (nombre, telefono){
+        this.nombre = nombre;
+        this.telefono =  telefono;
+    }
+    set setnombre(nombre){
+        this.nombre = nombre;
+    }
+    get getnombre(){
+        return this.nombre;
+    }
+    set settelefono (telefono){
+        return this.telefono;
+    }
+}
