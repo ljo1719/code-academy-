@@ -2,7 +2,7 @@ let input = document.getElementById ("lista_input");
 
 let lista = document.getElementById ("lista");
 
-input.addEventListener ("keyup", (event)=> {
+input.addEventListener ("input", (event)=> {
 
     lista.style.display ="block";
 
