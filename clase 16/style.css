@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+  }
+  
+  li:hover {
+    cursor: pointer;
+  }
+
+ 
