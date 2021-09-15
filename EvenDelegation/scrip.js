@@ -1,61 +1,60 @@
-const listaT = [];
-let listaR = [];
+const listaDeTareas =[];
 
-const form = document.querySelector ('#tarea');
-const tareaP = document.querySelector ('#taskp');
-const tareaR = document.querySelector ('#taskr');
+const formulario = document.querySelector ('#formulario');
+const pendientes = document.querySelector ('#pendientes');
+const realizadas = document.querySelector ('#realizadas');
+const Listas = document.querySelector('#listas')
 
-form.addEventListener('submit', function(evt) {
+formulario.addEventListener('submit', evt=> {
     evt.preventDefault();
-    
-    const value = this.tareas.value;
-    listaT.push(value);
-    Tpendientes();
-    this.reset();
-});
 
-function Tpendientes (){
-    let dibuja ='';
-    for (let i = 0; i < listaT.length; i++){
-        let name ="";
-        if (listaR.includes(i)){
-           
-            name='completed';
-        } 
-        dibuja += `<li data-target=${i} class="${name}">${listaT[i]}</li>`
+    const form = evt.target 
+    const tareas = form.tareas.value;
+    const description = form.description.value;
+    
+    const task = new Task (tareas, description)
+    listaDeTareas.push(task);
+    
+    dibujarListas();
+    form.reset();
+});
+ 
+const dibujarListas = () => {
+    
+    let listaPendientes = '';
+    let listaRealizadas = '';
+
+    listaDeTareas.forEach(task => {
         
-    }
-    tareaP.innerHTML = dibuja;
-   
+        if (task.estado ==='pendiente') {
+            
+            listaPendientes += dibujarElemento(task); 
+        } else {
+            
+            listaRealizadas += dibujarElemento(task);
+        }
+    })
+
+    pendientes.innerHTML = listaPendientes;
+    realizadas.innerHTML = listaRealizadas;
 }
 
-tareaP.addEventListener ('click', function(evt){
-    const li = evt.target;
-    const value = li.dataset.target;
-    const escompletada = listaR.includes(value);
 
+
+const dibujarElemento = task => `<li data-id = ${task.id}>${task.tareas} : ${task.description}</li>`
+
+
+
+Listas.addEventListener('click', evt =>{
+
+    if(evt.target.tagName != 'LI') return;
     
+    const data = evt.target.dataset;
     
-    if (escompletada){
-        listaR = listaR.filter(function(el) {
-            return el !== value;
-        });
-        
-    } else {
+    const idTarea = data.id;
+    const task = listaDeTareas.find(task => task.id == idTarea);
 
-        listaR.push(value);
-    }
+   task.estado === 'pendiente' ? task.completar () : task.volverApendiente();
 
-    li.className = escompletada ? '' : 'completed';
-
-    let dibuja1 ='';
-    for (let i = 0; i < listaR.length; i++){
-       
-            dibuja1 += `<li data-target=${i} >${listaT[i]}</li>`
-            tareaR.innerHTML = dibuja1;
-            
-    }
-   
+    dibujarListas();
 })
-
-
