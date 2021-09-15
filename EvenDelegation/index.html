@@ -9,27 +9,29 @@
 </head>
 <body>
     <div id = "pantalla"> 
-        <div>
-            <form id ="tarea">
-                <input type="texto" name="tareas"  placeholder ="Tarea Pendiente">
-            </form>
-        </div>
-        <div >
-            <h1>Tareas Pendientes</h1>
-            <ul class="todo" id = "taskp">
-                
-            </ul>
-        </div>
-        <div >
-            <h1>Tareas Realizadas</h1>
-            <ul class="done" id = "taskr">
-                
-            </ul>
-        </div>
+        
+        <form id ="formulario">
+            <input type="texto" name="tareas"  placeholder ="Tarea Pendiente" required >
+            <input type="text" name ="description" placeholder ="Descripción de Tarea" required >
+            <button type="submit">Enviar</button>
+        </form>
+        <div id ="listas">
+            <div>
+                <h1>Tareas Pendientes</h1>
+                <ul class="todo" id = "pendientes"></ul>
+            </div>
+            <div>
+                <h1>Tareas Realizadas</h1>
+                <ul class="todo" id = "realizadas"></ul> 
+            </div> 
+                                       
+                       
+        </div> 
+
     </div>
     
-    
-  <script src="./scrip.js"></script>  
+    <script src="./constructor.js"></script>
+    <script src="./scrip.js"></script>  
   
 </body>
 </html>

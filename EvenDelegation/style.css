@@ -1,23 +1,27 @@
 body {
     background-color: brown;
 }
-
-#pantalla {
+#pantalla, #listas {
+    width: 100%;
     display: flex;
-    justify-content: space-between;  
-    }
-h1 {
-    padding: 0px;
-    margin-right: 150px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+button {
+    margin-left: 20px;
+    font-size: 26px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+h1 {  
     color: aliceblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 li {
+    
     list-style: none;
     font-size: 25px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
 input {
     margin-top: 20px;
     margin-left: 20px;
@@ -25,10 +29,6 @@ input {
     width: 300px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
-.completed {
-    text-decoration: line-through;
-  }
   li:hover {
     cursor: pointer;
   }
