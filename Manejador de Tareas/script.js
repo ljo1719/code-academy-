@@ -20,33 +20,33 @@ formulario.addEventListener ('submit', evt => {
     listaDeCard.push(task);
     compleateCard();
     cambioDeColor();
-    form.reset();
-    
+    form.reset();  
 });
 
-const compleateCard = ()=> {
+ compleateCard = ()=> {
     let tasksView = document.querySelector('#tasks');
     let addTask = document.createElement('div');
-    
+        
         listaDeCard.forEach (task => {     
-        if (task.estado === 'pendiente') {
+       
+            if (task.estado === 'pendiente') {
             
            addTask.innerHTML = "";
         }
-        addTask.innerHTML = ` <div class="card" class="form-control">
+        addTask.innerHTML = ` <div class=""card text-dark bg-light mb-3" " class="form-control">
         <div class="card-header" class = "card-body"><h1>${task.title}</h1></div>
         <div class = "card-body" ><p>${task.description}</p>
-        <a  class  ="btn btn-danger ml-2"> Delete Task </a>
-        <a  id = "btn" class  ="btn btn-danger ml-2"  data-id = ${task.id}>Estado : ${task.estado}</a>
+        <a  onClick = "borrar(event)" class  ="btn btn-primary ml-2"> Delete Task </a>
+        <a  id = "btn" class  ="btn btn-primary ml-2"  data-id = ${task.id}> Estado : ${task.estado}</a>
         </div></div>`
         
         tasksView.appendChild(addTask);
+           
     })
+    
 }
 
-tasks.addEventListener('click', evt =>{
-
-    console.log(evt.target)
+tasks.addEventListener('click', evt =>{  
 
     const data = evt.target.dataset;
     
@@ -59,24 +59,38 @@ tasks.addEventListener('click', evt =>{
         task.completar();
     }  else if (task.estado === 'realizada'){
         task.volverApendiente();
-    } 
-      
-    compleateCard();
+    }
+    
+    let boton = document.querySelector('#btn')
+        
+            boton.innerHTML=` Estado : ${task.estado}`
+            console.log(event.target.dataset)            
+                
 })
 
-cambioDeColor = () => {
-
+cambioDeColor = ()=> {
     
-    listaDeCard.forEach(task => {
+    
+    const found = listaDeCard.filter(task => task.priority ==="High" )
+
+    console.log(found)
+    
+           
+   listaDeCard.forEach(task => {
        
         if(task.priority ===  'High'){
-        
-           tasks.classList.add("btn btn-danger ml-2");
+
+            document.querySelector('#tasks').className = "card text-white bg-danger mb-3"
+            
             
         } else {
-            tasks.classList.remove("btn btn-primary ml-2");
-            
+            document.querySelector('#tasks').className = "card text-dark bg-light mb-3" 
         }
-    })
     
+    })
 }
+
+borrar = (event) => {
+
+    event.target.parentElement.parentElement.remove();  
+}   
