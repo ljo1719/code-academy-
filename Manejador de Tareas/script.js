@@ -61,9 +61,9 @@ tasks.addEventListener('click', evt =>{
         task.volverApendiente();
     }
     
-    let boton = document.querySelector('#btn')
+    let boton = evt.target 
         
-            boton.innerHTML=` Estado : ${task.estado}`
+            boton.innerText=` Estado : ${task.estado}`
             console.log(event.target.dataset)            
                 
 })
