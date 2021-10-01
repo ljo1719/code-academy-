@@ -1,18 +1,27 @@
 class Task_card{
-    constructor(title, description,priority) {
-      this.id = listaDeCard.length;
+    constructor({id, title, description,priority}) {
+      this.id = id || 0;
       this.title = title;
       this.description = description;
       this.priority = priority;
-      this.estado = 'pendiente'
+      this.estado = 'Pendiente'
     }
     progreso() {
-        this.estado = 'progreso'
+        this.estado = 'Progreso'
       }
     completar() {
-      this.estado = 'realizada'
+      this.estado = 'Realizada'
     }
     volverApendiente() {
-      this.estado = 'pendiente'
+      this.estado = 'Pendiente'
+  }
+  
+  CambioPrioridad(){
+
+    this.priority = 'Low'
+  }
+
+  ReturnPrioridad (){
+    this.priority = 'High'
   }
 }
